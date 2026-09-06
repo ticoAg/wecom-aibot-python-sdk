@@ -1,10 +1,10 @@
 """
 企业微信智能机器人 Python SDK
 
-基于 WebSocket 长连接通道，提供消息收发、流式回复、模板卡片、事件回调、文件下载解密等核心能力。
+基于 WebSocket 长连接通道，提供消息收发、流式回复、模板卡片、事件回调、文件下载解密、上传临时素材与多媒体回复等核心能力。
 """
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 from .client import WSClient
 from .api import WeComApiClient

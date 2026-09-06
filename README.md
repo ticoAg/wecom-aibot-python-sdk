@@ -2,6 +2,8 @@
 
 企业微信智能机器人 Python SDK —— 基于 WebSocket 长连接通道，提供消息收发、流式回复、模板卡片、事件回调、文件下载解密、上传临时素材、回复多媒体消息等核心能力。
 
+> 本仓库是 [WecomTeam/wecom-aibot-python-sdk](https://github.com/WecomTeam/wecom-aibot-python-sdk) 的 fork，在官方 1.0.2 上合入临时素材上传、多媒体回复，以及 asyncio 回调修复。官方 PyPI 仍是 1.0.2；本 fork **不要**发到 pypi.org（包名属于 WecomTeam）。
+>
 > 本项目是 [@wecom/aibot-node-sdk](https://www.npmjs.com/package/@wecom/aibot-node-sdk)（Node.js 版）的 Python 等价实现。
 
 ## ✨ 特性
@@ -24,9 +26,15 @@
 
 ## 📦 安装
 
+GitHub tag：
+
 ```bash
-pip install wecom-aibot-python-sdk
+pip install git+https://github.com/ticoAg/wecom-aibot-python-sdk.git@v1.1.0
 ```
+
+LyrikTrip 内部走云效 Packages（`wecom-aibot-python-sdk==1.1.0`，index `lyriktrip`），不要用本地 path。
+
+官方 PyPI 的 `pip install wecom-aibot-python-sdk` 仍会装到 WecomTeam 的 1.0.2。
 
 **依赖：**
 - Python >= 3.8
