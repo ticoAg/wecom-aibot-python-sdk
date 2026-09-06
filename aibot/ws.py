@@ -310,7 +310,7 @@ class WsConnectionManager:
                 "connection considered dead"
             )
             # 在独立任务中触发重连，避免在当前任务被取消后无法执行
-            asyncio.ensure_future(self._schedule_reconnect())
+            asyncio.create_task(self._schedule_reconnect())
             self._stop_heartbeat()
             # 强制关闭底层连接
             if self._ws:
@@ -394,7 +394,7 @@ class WsConnectionManager:
         :param cmd: 发送的命令类型，默认 WsCmd.RESPONSE
         :return: 回执帧
         """
-        loop = asyncio.get_event_loop()
+        loop = asyncio.get_running_loop()
         future: asyncio.Future[WsFrame] = loop.create_future()
 
         frame: WsFrame = {
@@ -457,7 +457,7 @@ class WsConnectionManager:
                     continue
 
                 # 等待回执
-                loop = asyncio.get_event_loop()
+                loop = asyncio.get_running_loop()
                 ack_future: asyncio.Future[WsFrame] = loop.create_future()
 
                 # 设置超时

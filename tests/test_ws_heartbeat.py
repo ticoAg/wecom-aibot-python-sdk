@@ -141,7 +141,7 @@ class TestHeartbeatReconnect(unittest.IsolatedAsyncioTestCase):
         
         这是对 bug 修复的验证：
         - 修复前：_send_heartbeat 会 return 而不调用 _schedule_reconnect
-        - 修复后：使用 asyncio.ensure_future 在独立任务中触发重连
+        - 修复后：使用 asyncio.create_task 在独立任务中触发重连
         """
         # 模拟 WebSocket 连接
         fake_ws = _FakeProtocol(open=True)
@@ -182,7 +182,7 @@ class TestHeartbeatReconnect(unittest.IsolatedAsyncioTestCase):
         """
         验证重连在独立任务中执行，不受心跳任务取消影响
         
-        这是修复的关键：使用 asyncio.ensure_future 而不是 await
+        这是修复的关键：使用 asyncio.create_task 而不是 await
         """
         fake_ws = _FakeProtocol(open=True)
         self.manager._ws = fake_ws
