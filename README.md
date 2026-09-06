@@ -26,14 +26,16 @@
 
 ## 📦 安装
 
+GitHub Release 的 wheel（推荐）：
+
 ```bash
-pip install git+https://github.com/ticoAg/wecom-aibot-python-sdk.git@v1.1.0
+pip install https://github.com/ticoAg/wecom-aibot-python-sdk/releases/download/v1.1.0/wecom_aibot_python_sdk-1.1.0-py3-none-any.whl
 ```
 
 uv：
 
 ```toml
-wecom-aibot-python-sdk = { git = "https://github.com/ticoAg/wecom-aibot-python-sdk.git", tag = "v1.1.0" }
+wecom-aibot-python-sdk = { url = "https://github.com/ticoAg/wecom-aibot-python-sdk/releases/download/v1.1.0/wecom_aibot_python_sdk-1.1.0-py3-none-any.whl" }
 ```
 
 官方 PyPI 的 `pip install wecom-aibot-python-sdk` 仍会装到 WecomTeam 的 1.0.2。
